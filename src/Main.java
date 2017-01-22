@@ -1,12 +1,11 @@
 import java.util.Arrays;
 
-
 public class Main {
 
     private static Timer timer = new Timer();
 
     public static void main(String[] args) {
-        int len = 20000;
+        int len = 10000;
         int nums[] = new int[len];
         for(int i=0; i<nums.length; i++) nums[i] = (int)(Math.random() * len);
 
@@ -17,7 +16,6 @@ public class Main {
         System.out.format("%20s \t%s\n", "Insertion Sort:", Arrays.toString(insertionSort(nums)));
 
     }
-
 
     private static int[] bubbleSort(int[] nums) {
 
