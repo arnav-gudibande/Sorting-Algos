@@ -1,43 +1,72 @@
 import java.util.Arrays;
 
+
 public class Main {
 
+    private static Timer timer = new Timer();
+
     public static void main(String[] args) {
-        int[] nums = {5,3,7,6,2,4,8,1};
-        System.out.println(Arrays.toString(bubbleSort(nums)));
-        System.out.println(Arrays.toString(selectionSort(nums)));
+        int len = 20000;
+        int nums[] = new int[len];
+        for(int i=0; i<nums.length; i++) nums[i] = (int)(Math.random() * len);
+
+        System.out.format("%s \t%s\n\n", "Unsorted Array:", Arrays.toString(nums));
+
+        System.out.format("%20s \t%s\n", "Bubble Sort:", Arrays.toString(bubbleSort(nums)));
+        System.out.format("%20s \t%s\n", "Selection Sort:", Arrays.toString(selectionSort(nums)));
+        System.out.format("%20s \t%s\n", "Insertion Sort:", Arrays.toString(insertionSort(nums)));
+
     }
 
 
     private static int[] bubbleSort(int[] nums) {
-        int n = nums.length;
 
-        for(int i=n; i>0; i--) {
+        timer.start();
+
+        for(int i=nums.length; i>0; i--) {
             for(int c=0; c<i-1; c++) {
                 if(nums[c]>nums[c+1]) nums = swap(nums, c, c+1);
             }
         }
 
+        timer.stop();
+        System.out.print(timer.getElapsedTime() + " ms");
+        timer.reset();
+
         return nums;
     }
 
     private static int[] selectionSort(int[] nums) {
-        int n = nums.length;
 
-        for(int i=0; i<n; i++) {
+        timer.start();
+
+        for(int i=0; i<nums.length; i++) {
             int min = i;
-            for(int c=i; c<n; c++) if(nums[c]<min) min = c;
+            for(int c=i; c<nums.length; c++) if(nums[c]<min) min = c;
             nums = swap(nums, i, min);
         }
+
+        timer.stop();
+        System.out.print(timer.getElapsedTime() + " ms");
+        timer.reset();
 
         return nums;
     }
 
     private static int[] insertionSort(int[] nums) {
-        int n = nums.length;
 
+        timer.start();
 
+        for(int i=1; i<nums.length; i++) {
+            int c = nums[i];
+            for(int z=i-1; z>=0; z--) if(c<nums[z]) nums = swap(nums, i, z);
+        }
 
+        timer.stop();
+        System.out.print(timer.getElapsedTime() + " ms");
+        timer.reset();
+
+        return nums;
     }
 
     private static int[] swap(int[] nums, int s1, int s2) {
