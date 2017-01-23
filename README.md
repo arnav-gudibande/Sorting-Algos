@@ -1,6 +1,6 @@
 # Sorting-Algos
 
-Java Implementations of Various Sorting Algorithms 🔥 
+A project to compare the efficiency, structure, and simplicity of various sorting algorithms that people use.
 
 ## Bubble Sort
 
