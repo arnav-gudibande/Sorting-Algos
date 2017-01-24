@@ -40,7 +40,7 @@ public class Main {
 
         for(int i=0; i<nums.length; i++) {
             int min = i;
-            for(int c=i; c<nums.length; c++) if(nums[c]<min) min = c;
+            for(int c=i; c<nums.length; c++) if(nums[c]<nums[min]) min = c;
             nums = swap(nums, i, min);
         }
 
@@ -66,6 +66,10 @@ public class Main {
 
         return nums;
     }
+
+//    private static int[] mergeSort(int[] nums) {
+//
+//    }
 
     private static int[] swap(int[] nums, int s1, int s2) {
         int temp = nums[s1];
