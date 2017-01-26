@@ -15,6 +15,13 @@ public class Main {
         System.out.format("%20s \t%s\n", "Selection Sort:", Arrays.toString(selectionSort(nums)));
         System.out.format("%20s \t%s\n", "Insertion Sort:", Arrays.toString(insertionSort(nums)));
 
+        timer.start();
+        mergeSort(nums);
+        timer.stop();
+        System.out.print(timer.getElapsedTime() + " ms");
+        timer.reset();
+
+        System.out.format("%20s \t%s\n", "Merge Sort:", Arrays.toString(nums));
     }
 
     private static int[] bubbleSort(int[] nums) {
@@ -67,9 +74,60 @@ public class Main {
         return nums;
     }
 
-//    private static int[] mergeSort(int[] nums) {
-//
-//    }
+    public static void mergeSort(int[] arr) {
+
+
+        if (arr.length < 2)
+            return;
+        int mid = arr.length/2;
+        int leftSize = mid;
+        int rightSize = arr.length-mid;
+        int[] left = new int[leftSize];
+        int[] right = new int[rightSize];
+        for (int i = 0; i < mid; i++) {
+            left[i] = arr[i];
+
+        }
+        for (int i = mid; i < arr.length; i++) {
+            right[i - mid] = arr[i];
+        }
+        mergeSort(left);
+        mergeSort(right);
+        merge(left, right, arr);
+
+
+    }
+
+    public static void merge(int[] left, int[] right, int[] arr) {
+        int leftSize = left.length;
+        int rightSize = right.length;
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while (i < leftSize && j < rightSize) {
+            if (left[i] <= right[j]) {
+                arr[k] = left[i];
+                i++;
+                k++;
+            } else {
+                arr[k] = right[j];
+                k++;
+                j++;
+            }
+        }
+        while (i < leftSize) {
+            arr[k] = left[i];
+            k++;
+            i++;
+        }
+        while (j < leftSize) {
+            arr[k] = right[j];
+            k++;
+            j++;
+        }
+
+    }
+
 
     private static int[] swap(int[] nums, int s1, int s2) {
         int temp = nums[s1];
