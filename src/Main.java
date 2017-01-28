@@ -10,7 +10,6 @@ public class Main {
         for(int i=0; i<nums.length; i++) nums[i] = (int)(Math.random() * len);
 
         System.out.format("%s \t%s\n\n", "Unsorted Array:", Arrays.toString(nums));
-
         System.out.format("%20s \t%s\n", "Bubble Sort:", Arrays.toString(bubbleSort(nums)));
         System.out.format("%20s \t%s\n", "Selection Sort:", Arrays.toString(selectionSort(nums)));
         System.out.format("%20s \t%s\n", "Insertion Sort:", Arrays.toString(insertionSort(nums)));
@@ -75,59 +74,44 @@ public class Main {
     }
 
     public static void mergeSort(int[] arr) {
+        
+        if (arr.length < 2) return;
 
-
-        if (arr.length < 2)
-            return;
         int mid = arr.length/2;
-        int leftSize = mid;
-        int rightSize = arr.length-mid;
-        int[] left = new int[leftSize];
-        int[] right = new int[rightSize];
-        for (int i = 0; i < mid; i++) {
-            left[i] = arr[i];
+        int[] l = Arrays.copyOf(arr, mid);
+        int[] r = Arrays.copyOfRange(arr, mid, arr.length);
 
-        }
-        for (int i = mid; i < arr.length; i++) {
-            right[i - mid] = arr[i];
-        }
-        mergeSort(left);
-        mergeSort(right);
-        merge(left, right, arr);
-
-
+        mergeSort(l);
+        mergeSort(r);
+        merge(l, r, arr);
     }
 
     public static void merge(int[] left, int[] right, int[] arr) {
-        int leftSize = left.length;
-        int rightSize = right.length;
-        int i = 0;
-        int j = 0;
+
         int k = 0;
-        while (i < leftSize && j < rightSize) {
-            if (left[i] <= right[j]) {
-                arr[k] = left[i];
-                i++;
-                k++;
+        int c = 0;
+
+        for(int z=0; z<left.length && z<right.length; z++) {
+            if(left[z]<=right[z]) {
+                arr[c] = left[z];
+                c++;
             } else {
-                arr[k] = right[j];
-                k++;
-                j++;
+                arr[c] = right[z];
+                c++;
             }
         }
-        while (i < leftSize) {
-            arr[k] = left[i];
+
+        for(int z=0; z<left.length; z++) {
+            arr[k] = left[z];
             k++;
-            i++;
         }
-        while (j < leftSize) {
-            arr[k] = right[j];
+
+        for(int z=0; z<right.length; z++) {
+            arr[k] = right[z];
             k++;
-            j++;
         }
 
     }
-
 
     private static int[] swap(int[] nums, int s1, int s2) {
         int temp = nums[s1];
