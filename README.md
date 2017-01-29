@@ -2,10 +2,12 @@
 
 A collection of sorting algorithms to compare their efficiency, structure, and simplicity.
 
-![screen shot 2017-01-22 at 5 13 02 pm](https://cloud.githubusercontent.com/assets/15108659/22188071/21aee538-e0c6-11e6-80ba-1d25d76c9daf.png)
+<img width="1326" alt="screen shot 2017-01-29 at 12 39 38 pm" src="https://cloud.githubusercontent.com/assets/15108659/22407682/1dbba9ac-e620-11e6-86aa-beed7de0e10d.png">
 
 ### Bubble Sort
 
 ### Selection Sort
 
 ### Insertion Sort
+
+### Merge Sort
