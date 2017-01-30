@@ -5,8 +5,7 @@ public class Main {
     private static Timer timer = new Timer();
 
     public static void main(String[] args) {
-        for (int p = 100; p <= 8000; p = p * 2) {
-            System.out.println("\n" + p + " random integers being sorted\n");
+            System.out.println("\n 10000 random integers being sorted\n");
             int len = p;
             int nums[] = new int[len];
             for (int i = 0; i < nums.length; i++) nums[i] = (int) (Math.random() * len);
@@ -23,11 +22,9 @@ public class Main {
             timer.reset();
 
             System.out.format("%20s \t%s\n", "Merge Sort:", Arrays.toString(nums));
-        }
     }
 
     private static int[] bubbleSort(int[] nums) {
-
         timer.start();
 
         for(int i=nums.length; i>0; i--) {
@@ -44,7 +41,6 @@ public class Main {
     }
 
     private static int[] selectionSort(int[] nums) {
-
         timer.start();
 
         for(int i=0; i<nums.length; i++) {
@@ -61,7 +57,6 @@ public class Main {
     }
 
     private static int[] insertionSort(int[] nums) {
-
         timer.start();
 
         for(int i=1; i<nums.length; i++) {
@@ -76,10 +71,8 @@ public class Main {
         return nums;
     }
 
-    public static void mergeSort(int[] arr) {
-        
+    public static void mergeSort(int[] arr) {  
         if (arr.length < 2) return;
-
         int mid = arr.length/2;
         int[] l = Arrays.copyOf(arr, mid);
         int[] r = Arrays.copyOfRange(arr, mid, arr.length);
@@ -90,7 +83,6 @@ public class Main {
     }
 
     public static void merge(int[] left, int[] right, int[] arr) {
-
         int k = 0;
         int c = 0;
 
@@ -113,7 +105,6 @@ public class Main {
             arr[k] = right[z];
             k++;
         }
-
     }
 
     private static int[] swap(int[] nums, int s1, int s2) {
