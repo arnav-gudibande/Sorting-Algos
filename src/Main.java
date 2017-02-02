@@ -5,23 +5,23 @@ public class Main {
     private static Timer timer = new Timer();
 
     public static void main(String[] args) {
-            System.out.println("\n 10000 random integers being sorted\n");
-            int len = p;
-            int nums[] = new int[len];
-            for (int i = 0; i < nums.length; i++) nums[i] = (int) (Math.random() * len);
+        System.out.println("\n 10000 random integers being sorted\n");
+        int len = p;
+        int nums[] = new int[len];
+        for (int i = 0; i < nums.length; i++) nums[i] = (int) (Math.random() * len);
 
-            System.out.format("%s \t%s\n\n", "Unsorted Array:", Arrays.toString(nums));
-            System.out.format("%20s \t%s\n", "Bubble Sort:", Arrays.toString(bubbleSort(nums)));
-            System.out.format("%20s \t%s\n", "Selection Sort:", Arrays.toString(selectionSort(nums)));
-            System.out.format("%20s \t%s\n", "Insertion Sort:", Arrays.toString(insertionSort(nums)));
+        System.out.format("%s \t%s\n\n", "Unsorted Array:", Arrays.toString(nums));
+        System.out.format("%20s \t%s\n", "Bubble Sort:", Arrays.toString(bubbleSort(nums)));
+        System.out.format("%20s \t%s\n", "Selection Sort:", Arrays.toString(selectionSort(nums)));
+        System.out.format("%20s \t%s\n", "Insertion Sort:", Arrays.toString(insertionSort(nums)));
 
-            timer.start();
-            mergeSort(nums);
-            timer.stop();
-            System.out.print(timer.getElapsedTime() + " ms");
-            timer.reset();
+        timer.start();
+        mergeSort(nums);
+        timer.stop();
+        System.out.print(timer.getElapsedTime() + " ms");
+        timer.reset();
 
-            System.out.format("%20s \t%s\n", "Merge Sort:", Arrays.toString(nums));
+        System.out.format("%20s \t%s\n", "Merge Sort:", Arrays.toString(nums));
     }
 
     private static int[] bubbleSort(int[] nums) {
