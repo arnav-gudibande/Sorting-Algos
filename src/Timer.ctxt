@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Timer()
+comment1.params=
+comment1.target=void\ start()
+comment2.params=
+comment2.target=void\ stop()
+comment3.params=
+comment3.target=long\ getElapsedTime()
+comment4.params=
+comment4.target=void\ reset()
+numComments=5

@@ -76,7 +76,7 @@ public class Main {
         return nums;
     }
 
-    public static void mergeSort(int[] arr) {
+    private static void mergeSort(int[] arr) {
         
         if (arr.length < 2) return;
 
@@ -89,7 +89,7 @@ public class Main {
         merge(l, r, arr);
     }
 
-    public static void merge(int[] left, int[] right, int[] arr) {
+    private static void merge(int[] left, int[] right, int[] arr) {
 
         int k = 0;
         int c = 0;
